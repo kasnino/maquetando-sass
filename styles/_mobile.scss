@@ -1,0 +1,44 @@
+
+
+//Smartphones
+
+@include mediasm {
+main {
+  align-items: center;
+  text-align: center;
+}
+   div.menu-branding{
+	background: red;	
+}
+
+}
+
+
+//Tablets & Small Laptos
+
+@include mediamd {
+
+main {
+  align-items: center;
+  text-align: center;
+}
+ul.menu-nav, div.menu-branding{
+	float: none;
+}
+}
+
+
+//Desckops & Laptos
+
+@include medialg {
+
+
+
+}
+
+
+//Widescreens
+
+@include mediaxl {
+
+}

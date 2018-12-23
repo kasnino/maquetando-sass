@@ -1,0 +1,187 @@
+
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  left: 35                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          px;
+  top: 35px;
+  margin-top: 5px;
+  cursor: pointer;
+  @include easeOut;
+  background: #4a4a4a;
+  padding: 5px;
+  border-radius: 4px;
+
+
+
+  .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #FFF; 
+    @include easeOut;
+                                                                                                                                                                                                                                                                              
+  }
+
+  /*rotar en el eje de las X*/
+
+  &.close{
+    transform: rotate(180deg);
+
+      .btn-line {
+
+
+        /*linia 1 rotar*/
+        &:nth-child(1){
+          
+          transform: rotate(45deg) translate(5px, 5px);
+          padding: 0;
+          margin: 0;
+        }
+
+        /*linia 2 rotar*/
+        &:nth-child(2){
+          background: blue;
+          opacity: 0;
+        }
+
+        /*linia 3 rotar*/
+        &:nth-child(3){
+        
+      
+          transform: rotate(-45deg)translate(2px, -3px);
+     
+        }  
+      }
+
+    }
+
+ }
+
+
+ .menu-main{
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+
+    &.show{
+
+      visibility: visible;
+
+    }
+
+
+    .menu-nav{
+      list-style: none;
+    }
+
+
+
+    .menu-nav, .menu-branding{
+     display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+
+      }
+
+      .menu-nav{
+
+        margin: 0;
+        padding: 0;
+        background: darken($color, 5);
+        transform: translate3d(0, -100%, 0);
+
+        @include easeOut;
+
+        &.show{
+          transform: translate3d(0,0,0);
+            @include easeOut;
+
+        }
+      }
+  
+
+
+      .menu-branding{
+
+        background: $color;
+        transform: translate3d(0, 100%, 0);
+        @include easeOut;
+        &.show{
+          transform: translate3d(0,0,0);
+          @include easeOut;
+
+        }
+
+      .avatar{
+
+      background: $show-avatar;
+      background-size: cover;
+      background-repeat: repeat;
+     
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 3px solid $secund-color;
+      }  
+    }
+
+
+    
+    .nav-items{
+         transform: translate3d(600px, 0, 0);
+         @include easeOut;
+
+
+         &.show{
+          transform: translate3d(0,0,0);
+
+            .current{
+        color: $secund-color;
+        font-weight: 300;
+      }
+
+    }
+
+
+
+      .nav-link{
+
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 100;
+        color: #FFf;
+        text-decoration: none;
+        @include easeOut;
+
+      &:hover{
+         color: $secund-color; 
+         transform: scale(1.1);
+      }
+
+      }
+
+
+    }
+
+ }
+
+/*  for(int x=0; x<4; x++)*/
+ @for $x from 1 through 4 {
+  .nav-items:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
+
+
+

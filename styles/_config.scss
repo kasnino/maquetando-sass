@@ -1,0 +1,71 @@
+$color: #444;
+$font-famili: "Roboto", "Helvetica", "Arial", sans-serif;
+$color-font: #fefefe;
+$secund-color: #eece1a; 
+$show-img-home: true;
+$show-img: url(../styles/fondoo.jpg);
+$show-avatar: url(../styles/kasnino.png);
+$background-opacity: 0.9;
+
+
+
+
+@mixin easeOut {
+	transition: all 0.5s ease-out;
+
+}
+
+
+@mixin background {
+
+	@if $show-img-home{
+		&#body-main{
+			background: $show-img;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			width: 100%;
+
+
+
+			&:after{
+				content:'';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				background: rgba($color,$background-opacity);
+
+			}
+		}
+	}
+
+
+}
+
+
+@mixin mediasm {
+  @media screen  and (max-width: 500px){
+    @content;
+  }
+}
+
+@mixin mediamd {
+  @media screen  and (max-width: 768px){
+    @content;
+  }
+}
+
+@mixin medialg {
+  @media screen and (min-width: 769px) and (max-width: 1170px){
+    @content;
+  }
+}
+
+@mixin mediaxl {
+  @media screen  and (min-width: 1171px){
+    @content;
+  }
+}
